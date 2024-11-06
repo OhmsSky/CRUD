@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar una tarea</title>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+<ul>
+    {% for libro in libros %}
+    <li> {{ libro.titulo }} - {{ tarea.autor }}</li>
+    {% endfor %}
+</ul>
+
+<div>
+
+</div>
+
+<table>
+    <tr>
+        <th>Tarea</th>
+        <th>Acciones</th>
+    </tr>
+    {% for libro in libros %}
+    <tr>
+        <td>{{ libro.titulo }}</td>
+        <td>
+            <a href="{% url 'actualizar_libro' libro.id %}">Editar</a>
+            <a href="{% url 'eliminar_libro' libro.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Volver a agregar un producto</a>
+</body>
+</html>
